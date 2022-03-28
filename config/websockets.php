@@ -58,18 +58,20 @@ return [
          * certificate chain of issuers. The private key also may be contained
          * in a separate file specified by local_pk.
          */
-        'local_cert' => null,
+        'local_cert' => env('WS_LOCAL_CERT', null),
 
         /*
          * Path to local private key file on filesystem in case of separate files for
          * certificate (local_cert) and private key.
          */
-        'local_pk' => null,
+        'local_pk' => env('WS_LOCAL_PK', null),
 
         /*
          * Passphrase with which your local_cert file was encoded.
          */
-        'passphrase' => null
+        'passphrase' => null,
+
+        'verify_peer' => false,
     ],
 
     'statistics' => [
