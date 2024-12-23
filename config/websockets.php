@@ -72,6 +72,7 @@ return [
         'passphrase' => null,
 
         'verify_peer' => false,
+
     ],
 
     'statistics' => [

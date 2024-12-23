@@ -1,0 +1,21 @@
+version: '3'
+
+networks:
+  wfm_portal:
+    external: true
+
+services:
+  websocket:
+    build:
+      context: .
+      dockerfile: docker/PHP/Dockerfile
+    container_name: websocket
+    restart: always
+    ports:
+      # - '${WEBSOCKET_NGINX_EXPOSE:-6101}:6101'
+      - '${PHP_PORT:-8084}:6102'
+      - '${WEBSOCKET_PORT:-8083}:80'
+    volumes:
+      - .:/var/www/html
+    networks:
+      - wfm_portal
